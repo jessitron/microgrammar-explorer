@@ -42,10 +42,10 @@ export function howToDisplayTree(tpgs: TreeParseGUIState, tc: TreeChoices): HowT
 }
 
 export function availableTreeChoices(tpgs: TreeParseGUIState): TreeChoices[] {
-    const available = [TreeChoices.ast, TreeChoices.valueStructure];
-    if (_.has(tpgs, "error.error.tree")) {
-        available.push(TreeChoices.parsingError);
-    }
+    const available = [];
+    if (!!tpgs.ast) { available.push(TreeChoices.ast); }
+    if (!!tpgs.valueStructure) { available.push(TreeChoices.valueStructure); }
+    if (!!tpgs.failureExplanation) { available.push(TreeChoices.parsingError); }
     return available;
 }
 

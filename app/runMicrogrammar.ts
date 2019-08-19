@@ -1,5 +1,8 @@
 import * as mgModule from "@atomist/microgrammar";
-import { MatchScope, ParseResponse } from "./TreeParseGUIState";
+import {
+    MatchScope,
+    ParseResponse,
+} from "./TreeParseGUIState";
 
 export function runMicrogrammar(params: {
     parseThis: string,

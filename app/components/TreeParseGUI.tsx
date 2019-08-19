@@ -4,7 +4,7 @@ import React from "react";
 import { runMicrogrammar } from "../runMicrogrammar";
 import {
   DataToParse,
-  isErrorResponse, ParseResponse, ParserInputProps, TreeChoices, TreeParseGUIState,
+  isErrorResponse, MatchScope, ParseResponse, ParserInputProps, TreeChoices, TreeParseGUIState,
 } from "../TreeParseGUIState";
 import { highlightFromAst, HighlightFunction } from "./codeSubmission/highlightCode";
 import { ParserInput } from "./codeSubmission/ParserInput";
@@ -29,6 +29,7 @@ export class TreeParseGUI extends React.Component<{},
       ast: [],
       chosenTree: TreeChoices.ast,
       valueStructure: [],
+      matchScope: MatchScope.within,
     };
   }
 
@@ -52,6 +53,10 @@ export class TreeParseGUI extends React.Component<{},
     console.log("in handleParserInputChange. data: ", data);
     this.setState((s) => ({ parserInput: _.merge(s.parserInput, data), ast: [] }));
     this.updateTree();
+  }
+
+  public changeMatchScope = async (event: React.ChangeEvent, matchScope: MatchScope) => {
+    this.setState((s) => ({ matchScope }));
   }
 
   public updateChosenTree = async (event: React.ChangeEvent, tc: TreeChoices) => {
@@ -99,6 +104,8 @@ export class TreeParseGUI extends React.Component<{},
               updateFn={this.handleParserInputChange}
               highlightFn={this.highlightFn}
               errorResponse={this.state.error}
+              changeMatchScope={this.changeMatchScope}
+              matchScope={this.state.matchScope}
             />
           </div>
           <div className="preview"

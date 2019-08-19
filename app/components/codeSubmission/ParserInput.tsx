@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@material-ui/core";
 import React from "react";
-import { ErrorResponse, ParserInputProps } from "../../TreeParseGUIState";
+import { ErrorResponse, MatchScope, ParserInputProps } from "../../TreeParseGUIState";
 import { MicrogrammarInput, MicrogrammarInputProps } from "../MicrogrammarInput";
 import { PathExpressionInput } from "../PathExpressionInput";
 import { CodeDisplay } from "./codeDisplay";
@@ -10,13 +10,10 @@ export interface AllParserInputProps {
   parserInput: ParserInputProps;
   highlightFn: HighlightFunction;
   errorResponse?: ErrorResponse;
+  matchScope: MatchScope;
   updateFn: (dtp: Partial<ParserInputProps>) => Promise<void>;
+  changeMatchScope: (ce: React.ChangeEvent, ms: MatchScope) => Promise<void>;
 }
-
-const availableParsers = [{ value: "Java9", label: "Java" },
-{ value: "Markdown", label: "Markdown" },
-{ value: "microgrammar", label: "Microgrammar" },
-];
 
 export class ParserInput extends React.Component<AllParserInputProps, {}> {
   constructor(props) {
@@ -64,6 +61,25 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
               handleChange={this.handleMicrogrammarChange}
               errorResponse={this.props.errorResponse} />
             Parse This:
+            <FormControl>
+              <RadioGroup
+                key="tree-display-choice"
+                value={this.props.matchScope}
+                onChange={this.props.changeMatchScope}>
+                <FormControlLabel
+                  value="matchExact" name="matchExact"
+                  control={<Radio color="primary" />}
+                  label="match precisely"
+                  color="white"
+                  key="matchExact" />
+                <FormControlLabel
+                  value="matchWithin" name="matchWithin"
+                  control={<Radio color="primary" />}
+                  label="find matches"
+                  color="white"
+                  key="matchWithin" />
+              </RadioGroup>
+            </FormControl>
             <CodeDisplay
               key="parseThisInput"
               highlightFn={this.props.highlightFn}

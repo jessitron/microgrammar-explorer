@@ -41,6 +41,8 @@ export interface ParserInputProps {
     code: string;
 }
 
+export enum MatchScope { exact = "matchExact", within = "matchWithin" }
+
 export interface TreeParseGUIState {
     displayCode: boolean;
     ast: AST;
@@ -48,6 +50,7 @@ export interface TreeParseGUIState {
     error?: ErrorResponse;
     parserInput: ParserInputProps;
     chosenTree: TreeChoices;
+    matchScope: MatchScope;
 }
 
 export enum TreeChoices {

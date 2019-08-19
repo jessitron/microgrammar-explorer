@@ -1,14 +1,14 @@
 import * as mgModule from "@atomist/microgrammar";
-import { MicrogrammarDefinition } from "@atomist/microgrammar";
-import { ParseResponse } from "./TreeParseGUIState";
+import { MatchScope, ParseResponse } from "./TreeParseGUIState";
 
 export function runMicrogrammar(params: {
     parseThis: string,
     phrase: string,
     termDefinitionJS: string,
+    matchScope: MatchScope,
 }): ParseResponse {
 
-    const { phrase, parseThis, termDefinitionJS } = params;
+    const { phrase, parseThis, termDefinitionJS, matchScope } = params;
 
     let terms: (mg) => mgModule.TermsDefinition<any>;
     try {
@@ -39,12 +39,24 @@ export function runMicrogrammar(params: {
     }
     console.log("Microgrammar has been parsed.");
 
-    const r = (mg as mgModule.Microgrammar<any>).matchReportIterator(parseThis);
-
-    const allMatches = Array.from(r);
-
-    return {
-        ast: allMatches.map((mr) => mr.toParseTree()),
-        valueStructure: allMatches.map((mr) => mr.toValueStructure()),
-    };
+    if (matchScope === MatchScope.within) {
+        const r = (mg as mgModule.Microgrammar<any>).matchReportIterator(parseThis);
+        const allMatches = Array.from(r);
+        return {
+            ast: allMatches.map((mr) => mr.toParseTree()),
+            valueStructure: allMatches.map((mr) => mr.toValueStructure()),
+        };
+    } else { // perfect match
+        const mr = mg.perfectMatch(parseThis);
+        if (mgModule.isSuccessfulMatchReport(mr)) {
+            return {
+                ast: [mr.toParseTree()],
+                valueStructure: [mr.toValueStructure()],
+            };
+        } else { // failed
+            return {
+                failureExplanation: mr.toExplanationTree(),
+            };
+        }
+    }
 }

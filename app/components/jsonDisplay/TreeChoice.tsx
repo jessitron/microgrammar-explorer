@@ -30,7 +30,7 @@ export function howToDisplayTree(tpgs: TreeParseGUIState, tc: TreeChoices): HowT
             };
         case TreeChoices.parsingError:
             return {
-                treeToRender: tpgs.error.error.tree,
+                treeToRender: tpgs.failureExplanation,
                 theme: "apathy:inverted",
             };
         case TreeChoices.valueStructure:

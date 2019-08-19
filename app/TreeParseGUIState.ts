@@ -9,6 +9,7 @@ export interface MicrogrammarParserSpec {
 export interface DataToParse {
     code: string;
     parser: MicrogrammarParserSpec;
+    matchScope: MatchScope;
 }
 export interface TreeNodeCompatible {
 
@@ -47,6 +48,7 @@ export interface TreeParseGUIState {
     displayCode: boolean;
     ast: AST;
     valueStructure: any[];
+    failureExplanation?: TreeNodeCompatible;
     error?: ErrorResponse;
     parserInput: ParserInputProps;
     chosenTree: TreeChoices;
@@ -63,8 +65,11 @@ export interface ErrorResponse {
     error: {
         message: string,
         complainAbout?: KnownErrorLocation,
-        tree?: any,
     };
+}
+
+export interface NoPerfectMatch {
+    failureExplanation: TreeNodeCompatible;
 }
 
 export type KnownErrorLocation = "code parse" | "microgrammar terms" | "microgrammar phrase";
@@ -72,9 +77,14 @@ export type KnownErrorLocation = "code parse" | "microgrammar terms" | "microgra
 export type ParseResponse = {
     ast: AST,
     valueStructure: any[],
-} | ErrorResponse;
+} | ErrorResponse | NoPerfectMatch;
 
 export function isErrorResponse(pr: ParseResponse): pr is ErrorResponse {
     const maybe = pr as ErrorResponse;
     return !!maybe.error;
+}
+
+export function isNoPerfectMatch(pr: ParseResponse): pr is NoPerfectMatch {
+    const maybe = pr as NoPerfectMatch;
+    return !!maybe.failureExplanation;
 }

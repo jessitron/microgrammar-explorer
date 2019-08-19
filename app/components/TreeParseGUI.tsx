@@ -80,8 +80,14 @@ export class TreeParseGUI extends React.Component<{},
     this.setState((s) => ({ chosenTree: tc }));
   }
 
-  public highlightFn: HighlightFunction = (lineFrom0: number, charFrom0: number) =>
-    highlightFromAst(this.state.parserInput.code, this.state.ast, lineFrom0, charFrom0)
+  public highlightFn: HighlightFunction = (lineFrom0: number, charFrom0: number) => {
+    if (this.state.chosenTree === TreeChoices.parsingError) {
+
+    } else {
+      return highlightFromAst(this.state.parserInput.code, this.state.ast, lineFrom0, charFrom0)
+    }
+
+  }
 
   public styles = {
     header: {

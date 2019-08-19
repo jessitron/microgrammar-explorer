@@ -19,17 +19,25 @@ export function highlightFromAst(
     charFrom0: number) {
     console.log("This is the highlight function");
 
-    const offset = offsetInFile(code, lineFrom0, charFrom0);
-
     // I would rather do this once per update, but sad day.
     const highlightMatches = ast.map((match) => ({
         begin: match.$offset,
         length: match.$value.length,
     }));
 
+    return highlightinate(code, highlightMatches, lineFrom0, charFrom0);
+}
+
+function highlightinate(code: string,
+    highlightMatches: Array<{ begin: number, length: number }>,
+    lineFrom0: number,
+    charFrom0: number) {
+
     if (highlightMatches.length === 0) {
         return "we are done here";
     }
+
+    const offset = offsetInFile(code, lineFrom0, charFrom0);
 
     const startingMatch = highlightMatches.find((m) => m.begin === offset);
     if (startingMatch) {

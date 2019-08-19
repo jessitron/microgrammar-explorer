@@ -1,4 +1,7 @@
-import { AST, FailureExplanationTree } from "../../TreeParseGUIState";
+import {
+    AST,
+    FailureExplanationTree,
+} from "../../TreeParseGUIState";
 
 export type HighlightInstruction = SomeChars | WeAreDoneHere;
 

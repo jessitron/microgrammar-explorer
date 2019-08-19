@@ -1,3 +1,4 @@
+import { MatchExplanationTreeNode } from "@atomist/microgrammar";
 import { MicrogrammarInputProps } from "./components/MicrogrammarInput";
 
 export interface MicrogrammarParserSpec {
@@ -44,11 +45,13 @@ export interface ParserInputProps {
 
 export enum MatchScope { exact = "matchExact", within = "matchWithin" }
 
+export type FailureExplanationTree = MatchExplanationTreeNode;
+
 export interface TreeParseGUIState {
     displayCode: boolean;
     ast: AST;
     valueStructure: any[];
-    failureExplanation?: TreeNodeCompatible;
+    failureExplanation?: FailureExplanationTree;
     error?: ErrorResponse;
     parserInput: ParserInputProps;
     chosenTree: TreeChoices;
@@ -69,7 +72,7 @@ export interface ErrorResponse {
 }
 
 export interface NoPerfectMatch {
-    failureExplanation: TreeNodeCompatible;
+    failureExplanation: FailureExplanationTree;
 }
 
 export type KnownErrorLocation = "code parse" | "microgrammar terms" | "microgrammar phrase";

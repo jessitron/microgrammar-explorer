@@ -6,7 +6,7 @@ import {
   DataToParse,
   isErrorResponse, isNoPerfectMatch, MatchScope, ParseResponse, ParserInputProps, TreeChoices, TreeParseGUIState,
 } from "../TreeParseGUIState";
-import { highlightFromAst, HighlightFunction } from "./codeSubmission/highlightCode";
+import { highlightFromAst, highlightFromFailureExplanation, HighlightFunction } from "./codeSubmission/highlightCode";
 import { ParserInput } from "./codeSubmission/ParserInput";
 import { ErrorDisplay } from "./ErrorDisplay";
 import { Tree } from "./jsonDisplay/tree";
@@ -82,9 +82,10 @@ export class TreeParseGUI extends React.Component<{},
 
   public highlightFn: HighlightFunction = (lineFrom0: number, charFrom0: number) => {
     if (this.state.chosenTree === TreeChoices.parsingError) {
-
+      return highlightFromFailureExplanation(this.state.parserInput.code,
+        this.state.failureExplanation, lineFrom0, charFrom0);
     } else {
-      return highlightFromAst(this.state.parserInput.code, this.state.ast, lineFrom0, charFrom0)
+      return highlightFromAst(this.state.parserInput.code, this.state.ast, lineFrom0, charFrom0);
     }
 
   }

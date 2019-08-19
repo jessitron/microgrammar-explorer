@@ -1,4 +1,4 @@
-import { AST } from "../../TreeParseGUIState";
+import { AST, FailureExplanationTree } from "../../TreeParseGUIState";
 
 export type HighlightInstruction = SomeChars | WeAreDoneHere;
 
@@ -28,10 +28,47 @@ export function highlightFromAst(
     return highlightinate(code, highlightMatches, lineFrom0, charFrom0);
 }
 
-function highlightinate(code: string,
-    highlightMatches: Array<{ begin: number, length: number }>,
+export function highlightFromFailureExplanation(
+    code: string,
+    failureExplanation: FailureExplanationTree,
     lineFrom0: number,
     charFrom0: number) {
+
+    // how far did the match get?
+
+    const lastSuccessfulChild = findLastSuccessfulChild(failureExplanation);
+    const lastSuccessfulMatchedChar = lastSuccessfulChild ?
+        lastSuccessfulChild.$offset + lastSuccessfulChild.$value.length : 0;
+
+    // I would rather do this once per update, but sad day.
+    const highlightMatches = [{
+        begin: 0,
+        length: lastSuccessfulMatchedChar,
+    }];
+
+    return highlightinate(code, highlightMatches, lineFrom0, charFrom0);
+}
+
+function findLastSuccessfulChild(failureExplanation: FailureExplanationTree): FailureExplanationTree {
+    if (!failureExplanation) {
+        return undefined;
+    }
+    const firstFailedChild = failureExplanation.$children.find((c) => !c.successful);
+    if (firstFailedChild) {
+        return findLastSuccessfulChild(firstFailedChild);
+    }
+    const successfulChildren = failureExplanation.$children.filter((c) => c.successful);
+    if (!successfulChildren) {
+        return undefined;
+    }
+    const lastSuccessfulChild = successfulChildren[successfulChildren.length - 1];
+    return lastSuccessfulChild;
+}
+
+function highlightinate(code: string,
+                        highlightMatches: Array<{ begin: number, length: number }>,
+                        lineFrom0: number,
+                        charFrom0: number) {
 
     if (highlightMatches.length === 0) {
         return "we are done here";

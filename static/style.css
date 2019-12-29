@@ -14,13 +14,14 @@
   display: inline;
 }
 
-.essayForm {
+.parserInput {
   font-family: 'Open Sans', sans-serif;
   display: flex;
   padding: 20px;
   width: 95%;
 }
-.essayForm form {
+
+.parserInput form {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -33,11 +34,11 @@
     max-width: 1000px;
     border-radius: 3px;
 }
-.essayForm form * {
+.parserInput form * {
   margin-right: 10px;
       
 }
-.essayForm h1 {
+.parserInput h1 {
   font-size: 20px;
   font-weight: bold;
 }
@@ -47,7 +48,7 @@
 .react-json-view {
   padding: 1em;
 }
-.essayForm input {
+.parserInput input {
   display: flex;
     margin-bottom: 10px;
     padding: 5px;
@@ -105,11 +106,10 @@
   display: none;
 }
 
-#microgrammarInput {
+.microgrammarInputBox {
   width: 100%;
   border: solid 1px white;
-  padding-left: 0.5em;
-  padding-bottom: 0.5em;
+  padding: 0.5em;
 }
 
 #pathExpressionInput {

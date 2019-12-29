@@ -21,7 +21,7 @@ export class MicrogrammarInput extends React.Component<{
     }
 
     public render() {
-        return <div id="microgrammarInput">
+        return <div className="microgrammarInputBox">
             Microgrammar phrase:
            <CodeDisplay
                 key="microgrammarInput"

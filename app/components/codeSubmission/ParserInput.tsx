@@ -50,7 +50,7 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
   public render() {
     return (
       <div>
-        <div className="essayForm"
+        <div className="parserInput"
           style={{ width: "100%", backgroundColor: "'#172330'" }}>
           <form
             style={{ backgroundColor: "#172330" }}

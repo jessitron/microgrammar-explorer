@@ -22,20 +22,24 @@ export class MicrogrammarInput extends React.Component<{
 
     public render() {
         return <div className="microgrammarInputBox">
-            Microgrammar phrase:
-           <CodeDisplay
-                key="microgrammarInput"
-                code={this.props.microgrammarInputProps.microgrammarString}
-                handleCodeChange={this.handlePhraseChange}
-                className="microgrammarInput" />
-            Microgrammar terms:
-           <CodeDisplay
-                key="termInput"
-                code={this.props.microgrammarInputProps.terms}
-                handleCodeChange={this.handleTermsChange}
-                className="microgrammarInput can-have-errors"
-            />
-            {this.errorDisplay("microgrammar terms", this.props.errorResponse)}
+            <div className="oneLabelledMicrogrammarInput">
+                Microgrammar phrase:
+               <CodeDisplay
+                    key="microgrammarInput"
+                    code={this.props.microgrammarInputProps.microgrammarString}
+                    handleCodeChange={this.handlePhraseChange}
+                    className="microgrammarInput" />
+            </div>
+            <div className="oneLabelledMicrogrammarInput">
+                Microgrammar terms:
+               <CodeDisplay
+                    key="termInput"
+                    code={this.props.microgrammarInputProps.terms}
+                    handleCodeChange={this.handleTermsChange}
+                    className="microgrammarInput can-have-errors"
+                />
+                {this.errorDisplay("microgrammar terms", this.props.errorResponse)}
+            </div>
         </div>;
     }
 

@@ -121,7 +121,7 @@ export class TreeParseGUI extends React.Component<{},
           <img src="https://atomist.com/img/Atomist-Logo-White-Horiz.png" style={{ width: "15%", height: "50%" }}></img>
         </AppBar>
         <div style={{ display: "flex" }}>
-          <div className="code-view">
+          <div>
             <ErrorDisplay possibleError={this.state.error} />
             <ParserInput
               parserInput={this.state.parserInput}

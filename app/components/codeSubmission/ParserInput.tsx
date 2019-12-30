@@ -60,7 +60,6 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
               microgrammarInputProps={this.props.parserInput.microgrammarInput}
               handleChange={this.handleMicrogrammarChange}
               errorResponse={this.props.errorResponse} />
-            Parse This:
             <FormControl>
               <RadioGroup
                 key="tree-display-choice"
@@ -80,13 +79,15 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
                   key="matchWithin" />
               </RadioGroup>
             </FormControl>
-            <CodeDisplay
+            Parse This:
+              <CodeDisplay
               key="parseThisInput"
               highlightFn={this.props.highlightFn}
               className="parseThisInput"
               code={this.props.parserInput.code}
               handleCodeChange={this.handleCodeChange}
             />
+
           </form>
         </div>
       </div>

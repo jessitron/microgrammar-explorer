@@ -70,11 +70,13 @@ export function TreeChoice(props: TreeChoiceProps) {
     return ChoiceGroup({
         radioOptions,
         updateChoice: props.chooseTree,
-        treeToDisplay: props.treeToDisplay
+        treeToDisplay: props.treeToDisplay,
+        groupLabel: "Choose A Tree",
     });
 }
 
 function ChoiceGroup(properties: {
+    groupLabel: string,
     radioOptions: RadioChoiceSpec<TreeChoices>[],
     treeToDisplay: TreeChoices,
     updateChoice: (event: React.ChangeEvent, tc: TreeChoices) => void,

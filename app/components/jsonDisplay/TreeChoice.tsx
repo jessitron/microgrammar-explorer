@@ -110,7 +110,7 @@ function radioInputs(name, valueAndLabelses) {
     const oneInput = (params: RadioChoiceSpec<any>) => {
         const { value, label, disabled } = params;
         return <FormControlLabel
-            value={value} name={name}
+            value={value}
             control={<Radio color="primary" />}
             label={label}
             disabled={!!disabled}

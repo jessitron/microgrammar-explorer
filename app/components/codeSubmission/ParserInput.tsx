@@ -89,10 +89,11 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
     ];
     const key = "tree-display-choice";
     const updateChoice = this.props.changeMatchScope;
+    const currentSelection = this.props.matchScope;
     return <FormControl>
       <RadioGroup
         key={key}
-        value={this.props.matchScope}
+        value={currentSelection}
         onChange={updateChoice}>
         <FormControlLabel
           value="matchExact" name="matchExact"

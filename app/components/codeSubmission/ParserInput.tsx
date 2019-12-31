@@ -77,6 +77,16 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
   }
 
   public formControl() {
+    const radioOptions: RadioChoiceSpec<WaysToMatch>[] = [
+      {
+        value: WaysToMatch.MatchExact,
+        label: "match precisely",
+      },
+      {
+        value: WaysToMatch.MatchWithin,
+        label: "find matches"
+      }
+    ];
     return <FormControl>
       <RadioGroup
         key="tree-display-choice"

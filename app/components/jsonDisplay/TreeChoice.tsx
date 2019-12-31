@@ -53,11 +53,13 @@ export interface RadioChoiceSpec<Enum> {
     value: Enum; label: string; disabled?: boolean;
 }
 
-export function TreeChoice(props: {
+type TreeChoiceProps = {
     treeToDisplay: TreeChoices,
     availableChoices: TreeChoices[],
     chooseTree: (event: React.ChangeEvent, tc: TreeChoices) => void,
-}) {
+}
+
+export function TreeChoice(props: TreeChoiceProps) {
 
     const radioOptions = disableUnavailable([
         { value: TreeChoices.ast, label: "Parsed" },

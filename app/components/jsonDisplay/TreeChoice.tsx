@@ -121,5 +121,3 @@ function radioInputs(valueAndLabelses) {
     };
     return valueAndLabelses.map(oneInput);
 }
-
-// TODO next: make unavailable the choices that don't work

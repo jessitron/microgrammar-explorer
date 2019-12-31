@@ -3,7 +3,7 @@ import _ from "lodash";
 import React from "react";
 import { ThemeKeys } from "react-json-view";
 import { TreeChoices, TreeParseGUIState } from "../../TreeParseGUIState";
-import { ChoiceGroup } from "../ChoiceGroup";
+import { ChoiceGroup, RadioChoiceSpec } from "../ChoiceGroup";
 
 export interface HowToDisplay {
     treeToRender: any;
@@ -48,10 +48,6 @@ export function availableTreeChoices(tpgs: TreeParseGUIState): TreeChoices[] {
     if (!!tpgs.valueStructure) { available.push(TreeChoices.valueStructure); }
     if (!!tpgs.failureExplanation) { available.push(TreeChoices.parsingError); }
     return available;
-}
-
-export interface RadioChoiceSpec<Enum> {
-    value: Enum; label: string; disabled?: boolean;
 }
 
 type TreeChoiceProps = {

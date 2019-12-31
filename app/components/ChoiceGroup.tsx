@@ -1,8 +1,11 @@
 import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
-import { RadioChoiceSpec } from "./jsonDisplay/TreeChoice";
 import React from "react";
 
-type ChoiceGroupProps<Enum> = {
+export interface RadioChoiceSpec<Enum> {
+    value: Enum; label: string; disabled?: boolean;
+}
+
+export type ChoiceGroupProps<Enum> = {
     groupLabel: string,
     key: string,
     radioOptions: RadioChoiceSpec<Enum>[],

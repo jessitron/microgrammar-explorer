@@ -76,6 +76,7 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
   }
 
   public formControl() {
+
     return <FormControl>
       <RadioGroup
         key="tree-display-choice"

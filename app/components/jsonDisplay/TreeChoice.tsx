@@ -67,18 +67,21 @@ export function TreeChoice(props: TreeChoiceProps) {
         { value: TreeChoices.valueStructure, label: "Value Structure" },
     ], props.availableChoices);
 
-    return ChoiceGroup(radioOptions, props);
+    return ChoiceGroup({ radioOptions, ...props });
 }
 
-function ChoiceGroup(
+function ChoiceGroup(properties: {
     radioOptions: RadioChoiceSpec<TreeChoices>[],
-    props: TreeChoiceProps) {
+    treeToDisplay: TreeChoices,
+    chooseTree: (event: React.ChangeEvent, tc: TreeChoices) => void,
+}) {
+    const { radioOptions, treeToDisplay, chooseTree } = properties;
     return <FormControl>
         <FormLabel>Choose A Tree</FormLabel>
         <RadioGroup
             key="tree-display-choice"
-            value={props.treeToDisplay}
-            onChange={props.chooseTree}>
+            value={treeToDisplay}
+            onChange={chooseTree}>
             {radioInputs("treeChoice", radioOptions)}
         </RadioGroup>
     </FormControl>

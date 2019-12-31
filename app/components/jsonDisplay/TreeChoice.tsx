@@ -67,7 +67,7 @@ export function TreeChoice(props: TreeChoiceProps) {
         { value: TreeChoices.valueStructure, label: "Value Structure" },
     ], props.availableChoices);
 
-    return ChoiceGroup({
+    return ChoiceGroup<TreeChoices>({
         radioOptions,
         updateChoice: props.chooseTree,
         treeToDisplay: props.treeToDisplay,
@@ -84,7 +84,7 @@ type ChoiceGroupProps<Enum> = {
     updateChoice: (event: React.ChangeEvent, tc: Enum) => void,
 };
 
-function ChoiceGroup(properties: ChoiceGroupProps<TreeChoices>) {
+function ChoiceGroup<Enum extends string>(properties: ChoiceGroupProps<Enum>) {
     const { groupLabel,
         key,
         radioOptions,

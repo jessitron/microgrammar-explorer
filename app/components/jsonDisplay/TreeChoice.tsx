@@ -94,7 +94,7 @@ function ChoiceGroup(properties: {
             key={key}
             value={treeToDisplay}
             onChange={updateChoice}>
-            {radioInputs("treeChoice", radioOptions)}
+            {radioInputs(radioOptions)}
         </RadioGroup>
     </FormControl>
 }
@@ -106,7 +106,7 @@ function disableUnavailable<Enum>(
     return ri.map((i) => ({ ...i, disabled: !availables.includes(i.value) }));
 }
 
-function radioInputs(name, valueAndLabelses) {
+function radioInputs(valueAndLabelses) {
     const oneInput = (params: RadioChoiceSpec<any>) => {
         const { value, label, disabled } = params;
         return <FormControlLabel

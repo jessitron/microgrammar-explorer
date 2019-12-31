@@ -6,7 +6,7 @@ export interface RadioChoiceSpec<Enum> {
 }
 
 export type ChoiceGroupProps<Enum> = {
-    groupLabel: string,
+    groupLabel: string | undefined,
     key: string,
     radioOptions: RadioChoiceSpec<Enum>[],
     currentSelection: Enum,

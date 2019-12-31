@@ -1,0 +1,42 @@
+import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
+import { RadioChoiceSpec } from "./jsonDisplay/TreeChoice";
+import React from "react";
+
+type ChoiceGroupProps<Enum> = {
+    groupLabel: string,
+    key: string,
+    radioOptions: RadioChoiceSpec<Enum>[],
+    treeToDisplay: Enum,
+    updateChoice: (event: React.ChangeEvent, tc: Enum) => void,
+};
+
+export function ChoiceGroup<Enum extends string>(props: ChoiceGroupProps<Enum>) {
+    const { groupLabel,
+        key,
+        radioOptions,
+        treeToDisplay,
+        updateChoice } = props;
+    return <FormControl>
+        <FormLabel>{groupLabel}</FormLabel>
+        <RadioGroup
+            key={key}
+            value={treeToDisplay}
+            onChange={updateChoice}>
+            {radioInputs(radioOptions)}
+        </RadioGroup>
+    </FormControl>
+}
+
+function radioInputs(valueAndLabelses) {
+    const oneInput = (params: RadioChoiceSpec<any>) => {
+        const { value, label, disabled } = params;
+        return <FormControlLabel
+            value={value}
+            control={<Radio color="primary" />}
+            label={label}
+            disabled={!!disabled}
+            color="white"
+            key={value} />;
+    };
+    return valueAndLabelses.map(oneInput);
+}

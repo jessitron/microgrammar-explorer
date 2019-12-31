@@ -84,12 +84,12 @@ type ChoiceGroupProps<Enum> = {
     updateChoice: (event: React.ChangeEvent, tc: Enum) => void,
 };
 
-function ChoiceGroup<Enum extends string>(properties: ChoiceGroupProps<Enum>) {
+function ChoiceGroup<Enum extends string>(props: ChoiceGroupProps<Enum>) {
     const { groupLabel,
         key,
         radioOptions,
         treeToDisplay,
-        updateChoice } = properties;
+        updateChoice } = props;
     return <FormControl>
         <FormLabel>{groupLabel}</FormLabel>
         <RadioGroup

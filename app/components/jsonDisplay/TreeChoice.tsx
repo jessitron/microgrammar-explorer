@@ -72,23 +72,26 @@ export function TreeChoice(props: TreeChoiceProps) {
         updateChoice: props.chooseTree,
         treeToDisplay: props.treeToDisplay,
         groupLabel: "Choose A Tree",
+        key: "tree-display-choice",
     });
 }
 
 function ChoiceGroup(properties: {
     groupLabel: string,
+    key: string,
     radioOptions: RadioChoiceSpec<TreeChoices>[],
     treeToDisplay: TreeChoices,
     updateChoice: (event: React.ChangeEvent, tc: TreeChoices) => void,
 }) {
     const { groupLabel,
+        key,
         radioOptions,
         treeToDisplay,
         updateChoice } = properties;
     return <FormControl>
         <FormLabel>{groupLabel}</FormLabel>
         <RadioGroup
-            key="tree-display-choice"
+            key={key}
             value={treeToDisplay}
             onChange={updateChoice}>
             {radioInputs("treeChoice", radioOptions)}

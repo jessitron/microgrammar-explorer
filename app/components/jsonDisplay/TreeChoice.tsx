@@ -81,13 +81,16 @@ function ChoiceGroup(properties: {
     treeToDisplay: TreeChoices,
     updateChoice: (event: React.ChangeEvent, tc: TreeChoices) => void,
 }) {
-    const { radioOptions, treeToDisplay, updateChoice: chooseTree } = properties;
+    const { groupLabel,
+        radioOptions,
+        treeToDisplay,
+        updateChoice } = properties;
     return <FormControl>
-        <FormLabel>Choose A Tree</FormLabel>
+        <FormLabel>{groupLabel}</FormLabel>
         <RadioGroup
             key="tree-display-choice"
             value={treeToDisplay}
-            onChange={chooseTree}>
+            onChange={updateChoice}>
             {radioInputs("treeChoice", radioOptions)}
         </RadioGroup>
     </FormControl>

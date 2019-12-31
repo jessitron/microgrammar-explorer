@@ -9,7 +9,7 @@ export type ChoiceGroupProps<Enum> = {
     groupLabel: string,
     key: string,
     radioOptions: RadioChoiceSpec<Enum>[],
-    treeToDisplay: Enum,
+    currentSelection: Enum,
     updateChoice: (event: React.ChangeEvent, tc: Enum) => void,
 };
 
@@ -17,13 +17,13 @@ export function ChoiceGroup<Enum extends string>(props: ChoiceGroupProps<Enum>) 
     const { groupLabel,
         key,
         radioOptions,
-        treeToDisplay,
+        currentSelection,
         updateChoice } = props;
     return <FormControl>
         <FormLabel>{groupLabel}</FormLabel>
         <RadioGroup
             key={key}
-            value={treeToDisplay}
+            value={currentSelection}
             onChange={updateChoice}>
             {radioInputs(radioOptions)}
         </RadioGroup>

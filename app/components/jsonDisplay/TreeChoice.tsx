@@ -74,7 +74,7 @@ export function TreeChoice(props: TreeChoiceProps) {
     return ChoiceGroup<TreeChoices>({
         radioOptions,
         updateChoice: props.chooseTree,
-        treeToDisplay: props.treeToDisplay,
+        currentSelection: props.treeToDisplay,
         groupLabel: "Choose A Tree",
         key: "tree-display-choice",
     });

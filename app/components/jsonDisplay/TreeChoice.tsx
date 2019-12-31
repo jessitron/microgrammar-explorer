@@ -76,15 +76,15 @@ export function TreeChoice(props: TreeChoiceProps) {
     });
 }
 
-type ChoiceGroupProps = {
+type ChoiceGroupProps<Enum> = {
     groupLabel: string,
     key: string,
-    radioOptions: RadioChoiceSpec<TreeChoices>[],
-    treeToDisplay: TreeChoices,
-    updateChoice: (event: React.ChangeEvent, tc: TreeChoices) => void,
+    radioOptions: RadioChoiceSpec<Enum>[],
+    treeToDisplay: Enum,
+    updateChoice: (event: React.ChangeEvent, tc: Enum) => void,
 };
 
-function ChoiceGroup(properties: ChoiceGroupProps) {
+function ChoiceGroup(properties: ChoiceGroupProps<TreeChoices>) {
     const { groupLabel,
         key,
         radioOptions,

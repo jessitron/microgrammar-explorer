@@ -77,13 +77,13 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
   }
 
   public formControl() {
-    const radioOptions: RadioChoiceSpec<WaysToMatch>[] = [
+    const radioOptions: RadioChoiceSpec<MatchScope>[] = [
       {
-        value: WaysToMatch.MatchExact,
+        value: MatchScope.exact,
         label: "match precisely",
       },
       {
-        value: WaysToMatch.MatchWithin,
+        value: MatchScope.within,
         label: "find matches"
       }
     ];
@@ -110,9 +110,4 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
       </RadioGroup>
     </FormControl>
   }
-}
-
-enum WaysToMatch {
-  MatchWithin = "matchWithin",
-  MatchExact = "matchExact",
 }

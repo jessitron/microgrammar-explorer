@@ -1,4 +1,3 @@
-import { AppBar, Typography } from "@material-ui/core";
 import * as _ from "lodash";
 import React from "react";
 import { runMicrogrammar } from "../runMicrogrammar";
@@ -13,6 +12,7 @@ import { Tree } from "./jsonDisplay/tree";
 import { availableTreeChoices, effectiveTreeChoice, howToDisplayTree, TreeChoice } from "./jsonDisplay/TreeChoice";
 import * as MicrogrammarInput from "./MicrogrammarInput";
 import { TalkOutLoud } from "./TalkOutLoud";
+import { HeaderBar } from "./headerBar";
 
 /* the main page for the index route of this app */
 export class TreeParseGUI extends React.Component<{},
@@ -87,20 +87,7 @@ export class TreeParseGUI extends React.Component<{},
     } else {
       return highlightFromAst(this.state.parserInput.code, this.state.ast, lineFrom0, charFrom0);
     }
-
   }
-
-  public styles = {
-    header: {
-      padding: "1em 2em",
-      marginBottom: "1em",
-      display: "flex",
-      flexFlow: "row nowrap",
-      alignItems: "center",
-      justifyContent: "space-between",
-      backgroundImage: "linear-gradient(to bottom right, #227F7E, #5bc399",
-    },
-  };
 
   public render() {
 
@@ -112,14 +99,7 @@ export class TreeParseGUI extends React.Component<{},
     return (
       <div className="gooeyOutside">
         <TalkOutLoud everything={this.state} ></TalkOutLoud>
-        <AppBar color="secondary" style={this.styles.header}>
-          <Typography
-            variant="title"
-          >
-            <a href="https://github.com/atomist/microgrammar">Microgrammar</a> Explorer
-          </Typography>
-          <img src="https://atomist.com/img/Atomist-Logo-White-Horiz.png" style={{ width: "15%", height: "50%" }}></img>
-        </AppBar>
+        <HeaderBar />
         <div style={{ display: "flex" }}>
           <div>
             <ErrorDisplay possibleError={this.state.error} />

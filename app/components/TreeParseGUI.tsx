@@ -11,7 +11,6 @@ import { ErrorDisplay } from "./ErrorDisplay";
 import { Tree } from "./jsonDisplay/tree";
 import { availableTreeChoices, effectiveTreeChoice, howToDisplayTree, TreeChoice } from "./jsonDisplay/TreeChoice";
 import * as MicrogrammarInput from "./MicrogrammarInput";
-import { TalkOutLoud } from "./TalkOutLoud";
 import { HeaderBar } from "./headerBar";
 
 /* the main page for the index route of this app */
@@ -98,7 +97,6 @@ export class TreeParseGUI extends React.Component<{},
     console.log("rendering hello");
     return (
       <div className="gooeyOutside">
-        <TalkOutLoud everything={this.state} ></TalkOutLoud>
         <HeaderBar />
         <div style={{ display: "flex" }}>
           <div>

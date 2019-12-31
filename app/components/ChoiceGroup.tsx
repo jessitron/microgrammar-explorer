@@ -19,7 +19,7 @@ export function ChoiceGroup<Enum extends string>(props: ChoiceGroupProps<Enum>) 
         radioOptions,
         currentSelection,
         updateChoice } = props;
-    const labelElement = <FormLabel>{groupLabel}</FormLabel>;
+    const labelElement = groupLabel && <FormLabel>{groupLabel}</FormLabel>;
     return <FormControl>
         {labelElement}
         <RadioGroup

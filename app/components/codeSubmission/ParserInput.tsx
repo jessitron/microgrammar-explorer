@@ -59,25 +59,7 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
               microgrammarInputProps={this.props.parserInput.microgrammarInput}
               handleChange={this.handleMicrogrammarChange}
               errorResponse={this.props.errorResponse} />
-            <FormControl>
-              <RadioGroup
-                key="tree-display-choice"
-                value={this.props.matchScope}
-                onChange={this.props.changeMatchScope}>
-                <FormControlLabel
-                  value="matchExact" name="matchExact"
-                  control={<Radio color="primary" />}
-                  label="match precisely"
-                  color="white"
-                  key="matchExact" />
-                <FormControlLabel
-                  value="matchWithin" name="matchWithin"
-                  control={<Radio color="primary" />}
-                  label="find matches"
-                  color="white"
-                  key="matchWithin" />
-              </RadioGroup>
-            </FormControl>
+            {this.formControl()}
             Parse This:
               <CodeDisplay
               key="parseThisInput"
@@ -91,5 +73,27 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
         </div>
       </div>
     );
+  }
+
+  public formControl() {
+    return <FormControl>
+      <RadioGroup
+        key="tree-display-choice"
+        value={this.props.matchScope}
+        onChange={this.props.changeMatchScope}>
+        <FormControlLabel
+          value="matchExact" name="matchExact"
+          control={<Radio color="primary" />}
+          label="match precisely"
+          color="white"
+          key="matchExact" />
+        <FormControlLabel
+          value="matchWithin" name="matchWithin"
+          control={<Radio color="primary" />}
+          label="find matches"
+          color="white"
+          key="matchWithin" />
+      </RadioGroup>
+    </FormControl>
   }
 }

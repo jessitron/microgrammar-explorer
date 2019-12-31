@@ -4,7 +4,7 @@ import { ErrorResponse, MatchScope, ParserInputProps } from "../../TreeParseGUIS
 import { MicrogrammarInput, MicrogrammarInputProps } from "../MicrogrammarInput";
 import { CodeDisplay } from "./codeDisplay";
 import { HighlightFunction } from "./highlightCode";
-import { RadioChoiceSpec } from "../ChoiceGroup";
+import { RadioChoiceSpec, ChoiceGroup } from "../ChoiceGroup";
 
 export interface AllParserInputProps {
   parserInput: ParserInputProps;
@@ -90,24 +90,12 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
     const key = "tree-display-choice";
     const updateChoice = this.props.changeMatchScope;
     const currentSelection = this.props.matchScope;
-    return <FormControl>
-      <RadioGroup
-        key={key}
-        value={currentSelection}
-        onChange={updateChoice}>
-        <FormControlLabel
-          value="matchExact" name="matchExact"
-          control={<Radio color="primary" />}
-          label="match precisely"
-          color="white"
-          key="matchExact" />
-        <FormControlLabel
-          value="matchWithin" name="matchWithin"
-          control={<Radio color="primary" />}
-          label="find matches"
-          color="white"
-          key="matchWithin" />
-      </RadioGroup>
-    </FormControl>
+    return ChoiceGroup<MatchScope>({
+      groupLabel: undefined,
+      radioOptions,
+      key,
+      updateChoice,
+      currentSelection,
+    })
   }
 }

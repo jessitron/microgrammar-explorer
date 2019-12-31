@@ -59,6 +59,13 @@ type TreeChoiceProps = {
     chooseTree: (event: React.ChangeEvent, tc: TreeChoices) => void,
 }
 
+function disableUnavailable<Enum>(
+    ri: Array<RadioChoiceSpec<Enum>>,
+    availables: Enum[]) {
+
+    return ri.map((i) => ({ ...i, disabled: !availables.includes(i.value) }));
+}
+
 export function TreeChoice(props: TreeChoiceProps) {
 
     const radioOptions = disableUnavailable([
@@ -99,13 +106,6 @@ function ChoiceGroup<Enum extends string>(props: ChoiceGroupProps<Enum>) {
             {radioInputs(radioOptions)}
         </RadioGroup>
     </FormControl>
-}
-
-function disableUnavailable<Enum>(
-    ri: Array<RadioChoiceSpec<Enum>>,
-    availables: Enum[]) {
-
-    return ri.map((i) => ({ ...i, disabled: !availables.includes(i.value) }));
 }
 
 function radioInputs(valueAndLabelses) {

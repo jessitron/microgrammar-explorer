@@ -67,6 +67,12 @@ export function TreeChoice(props: TreeChoiceProps) {
         { value: TreeChoices.valueStructure, label: "Value Structure" },
     ], props.availableChoices);
 
+    return ChoiceGroup(radioOptions, props);
+}
+
+function ChoiceGroup(
+    radioOptions: RadioChoiceSpec<TreeChoices>[],
+    props: TreeChoiceProps) {
     return <FormControl>
         <FormLabel>Choose A Tree</FormLabel>
         <RadioGroup
@@ -75,7 +81,7 @@ export function TreeChoice(props: TreeChoiceProps) {
             onChange={props.chooseTree}>
             {radioInputs("treeChoice", radioOptions)}
         </RadioGroup>
-    </FormControl>;
+    </FormControl>
 }
 
 function disableUnavailable<Enum>(

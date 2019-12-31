@@ -18,10 +18,10 @@ app.use(express.static("public"));
 
 app.use(express.json()); // do things right
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/app/index.html");
-});
+// // http://expressjs.com/en/starter/basic-routing.html
+// app.get("/", (request, response) => {
+//   response.sendFile(__dirname + "/app/index.html");
+// });
 
 // listen for requests :)
 const listener = app.listen(5000, () => {

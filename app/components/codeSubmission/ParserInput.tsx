@@ -1,8 +1,7 @@
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@material-ui/core";
+import { FormControl, FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
 import React from "react";
 import { ErrorResponse, MatchScope, ParserInputProps } from "../../TreeParseGUIState";
 import { MicrogrammarInput, MicrogrammarInputProps } from "../MicrogrammarInput";
-import { PathExpressionInput } from "../PathExpressionInput";
 import { CodeDisplay } from "./codeDisplay";
 import { HighlightFunction } from "./highlightCode";
 

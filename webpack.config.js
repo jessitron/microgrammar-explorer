@@ -3,19 +3,19 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   context: path.join(__dirname, './'),
-  entry: './app/app.js',
+  entry: './app/app.tsx',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js'],
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        loader: 'jsx-loader',
+        test: /\.tsx?$/,
+        use: 'ts-loader',
         exclude: /node_modules/,
         include: path.join(__dirname, 'app'),
       },
@@ -29,7 +29,7 @@ module.exports = {
         options: {
           limit: 25000,
         },
-    },
+      },
     ]
-    }
+  }
 };

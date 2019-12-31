@@ -16,7 +16,7 @@ const app = express();
 app.use(express.static("static"));
 app.use(express.static("public"));
 
-app.use(express.json()); // do things right
+// app.use(express.json()); // do things right
 
 // // http://expressjs.com/en/starter/basic-routing.html
 // app.get("/", (request, response) => {

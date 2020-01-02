@@ -109,10 +109,6 @@
    margin: 0.5em;
 }
 
-#pathExpressionInput {
-  width: 100%
-}
-
 .error-display {
   position: relative;
   background: pink;

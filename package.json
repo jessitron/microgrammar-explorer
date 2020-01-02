@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "tsc --project .",
     "build": "webpack",
-    "start": "webpack && node server.js",
+    "start": "webpack-dev-server --open",
     "lint": "tslint --project . --fix",
     "clean": "rimraf public/bundle.js server.js server.js.map \"app/**/*.js{,.map}\" "
   },
@@ -35,7 +35,8 @@
     "tslint": "^5.12.1",
     "typescript": "^3.6.3",
     "webpack": "^4.28.3",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   },
   "engines": {
     "node": "10.x"

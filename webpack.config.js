@@ -3,6 +3,9 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
+  devServer: {
+    contentBase: [path.join(__dirname, 'public'), path.join(__dirname, 'static')],
+  },
   context: path.join(__dirname, './'),
   entry: './app/app.tsx',
   output: {

@@ -13,7 +13,6 @@ import { AddressInfo } from "net";
 
 const app = express();
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static("static"));
 app.use(express.static("public"));
 
 // app.use(express.json()); // do things right

@@ -4,7 +4,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: [path.join(__dirname, 'public'), path.join(__dirname, 'static')],
+    contentBase: [path.join(__dirname, 'public')],
   },
   context: path.join(__dirname, './'),
   entry: './app/app.tsx',

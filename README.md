@@ -5,6 +5,8 @@ Goal: help people write microgrammars to parse code (and other text).
 
 This project displays, interactively, the tree parsed from various code by Atomist's [microgrammar](https://github.com/atomist/microgrammar) library.
 
+Live site: https://jessitron.github.io/microgrammar-explorer/public/
+
 clone, then 'npm install' and 'npm run start' -- it should tell you what port to hit.
 
 # What is microgrammar?

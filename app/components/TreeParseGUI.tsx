@@ -26,7 +26,7 @@ export class TreeParseGUI extends React.Component<{},
         microgrammarInput: MicrogrammarInput.init,
       },
       ast: [],
-      chosenTree: TreeChoices.ast,
+      chosenTree: TreeChoices.valueStructure,
       valueStructure: [],
       matchScope: MatchScope.within,
     };

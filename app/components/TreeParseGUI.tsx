@@ -33,7 +33,7 @@ export class TreeParseGUI extends React.Component<{},
   }
 
   public componentDidMount() {
-    // whatever.
+    this.updateTree();
   }
 
   public updateTree = _.debounce(async () => {

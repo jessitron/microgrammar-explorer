@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   background-color: #101821;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
   margin-top: 6em;
 }
 .parserChoice div {
@@ -26,13 +28,11 @@
   align-items: flex-start;
   flex-direction: column;
   margin-right: 50px;
-  color: white;
   margin-bottom: 25px;
-    padding: 15px;
-    background-color: #f0f0f0;
-    width: 95%;
-    max-width: 1000px;
-    border-radius: 3px;
+  padding: 15px;
+  width: 95%;
+  max-width: 1000px;
+  border-radius: 3px;
 }
 
 .parserInput h1 {

@@ -66,16 +66,16 @@ function disableUnavailable<Enum>(
 export function TreeChoice(props: TreeChoiceProps) {
 
     const radioOptions = disableUnavailable([
-        { value: TreeChoices.ast, label: "Parsed" },
-        { value: TreeChoices.parsingError, label: "Parsing Error" },
-        { value: TreeChoices.valueStructure, label: "Value Structure" },
+        { value: TreeChoices.ast, label: "Internal Details" },
+        { value: TreeChoices.parsingError, label: "Failure Details" },
+        { value: TreeChoices.valueStructure, label: "Values" },
     ], props.availableChoices);
 
     return ChoiceGroup<TreeChoices>({
         radioOptions,
         updateChoice: props.chooseTree,
         currentSelection: props.treeToDisplay,
-        groupLabel: "Choose A Tree",
+        groupLabel: "Results",
         key: "tree-display-choice",
     });
 }

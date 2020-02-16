@@ -61,7 +61,7 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
               handleChange={this.handleMicrogrammarChange}
               errorResponse={this.props.errorResponse} />
             {this.formControl()}
-            Parse This:
+            In this sample input:
               <CodeDisplay
               key="parseThisInput"
               highlightFn={this.props.highlightFn}
@@ -80,11 +80,11 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
     const radioOptions: RadioChoiceSpec<MatchScope>[] = [
       {
         value: MatchScope.exact,
-        label: "match precisely",
+        label: "exactly ",
       },
       {
         value: MatchScope.within,
-        label: "find matches"
+        label: "within"
       }
     ];
     const key = "tree-display-choice";

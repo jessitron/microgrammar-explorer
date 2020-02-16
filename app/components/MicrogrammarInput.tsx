@@ -23,7 +23,7 @@ export class MicrogrammarInput extends React.Component<{
     public render() {
         return <div className="microgrammarInputBox">
             <div className="oneLabelledMicrogrammarInput">
-                Microgrammar phrase:
+                Match this pattern:
                <CodeDisplay
                     key="microgrammarInput"
                     code={this.props.microgrammarInputProps.microgrammarString}
@@ -31,7 +31,7 @@ export class MicrogrammarInput extends React.Component<{
                     className="microgrammarInput" />
             </div>
             <div className="oneLabelledMicrogrammarInput">
-                Microgrammar terms:
+                given the term definitions returned by
                <CodeDisplay
                     key="termInput"
                     code={this.props.microgrammarInputProps.terms}

@@ -60,7 +60,7 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
           >
             <MicrogrammarInput
               microgrammarInputProps={this.props.microgrammarInput}
-              handleChange={this.handleMicrogrammarChange}
+              handleChange={this.props.mgUpdateFn}
               errorResponse={this.props.errorResponse} />
             {this.formControl()}
             In this sample input:

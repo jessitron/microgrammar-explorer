@@ -10,7 +10,7 @@ import { ParserInput } from "./codeSubmission/ParserInput";
 import { ErrorDisplay } from "./ErrorDisplay";
 import { Tree } from "./jsonDisplay/tree";
 import { availableTreeChoices, effectiveTreeChoice, howToDisplayTree, TreeChoice } from "./jsonDisplay/TreeChoice";
-import * as MicrogrammarInput from "./MicrogrammarInput";
+import { init as initMicrogrammarInput } from "./MicrogrammarInput";
 import { HeaderBar } from "./headerBar";
 
 /* the main page for the index route of this app */
@@ -23,7 +23,7 @@ export class TreeParseGUI extends React.Component<{},
       displayCode: false,
       parserInput: {
         code: "blah<other><thing> haha",
-        microgrammarInput: MicrogrammarInput.init,
+        microgrammarInput: initMicrogrammarInput,
       },
       ast: [],
       chosenTree: TreeChoices.valueStructure,

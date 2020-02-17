@@ -10,7 +10,7 @@ import { ParserInput } from "./codeSubmission/ParserInput";
 import { ErrorDisplay } from "./ErrorDisplay";
 import { Tree } from "./jsonDisplay/tree";
 import { availableTreeChoices, effectiveTreeChoice, howToDisplayTree, TreeChoice } from "./jsonDisplay/TreeChoice";
-import { init as initMicrogrammarInput } from "./MicrogrammarInput";
+import { init as initMicrogrammarInput, MicrogrammarInputProps } from "./MicrogrammarInput";
 import { HeaderBar } from "./headerBar";
 
 /* the main page for the index route of this app */
@@ -68,6 +68,12 @@ export class TreeParseGUI extends React.Component<{},
   public handleParserInputChange = async (data: ParserInputProps) => {
     console.log("in handleParserInputChange. data: ", data);
     await this.setState((s) => ({ parserInput: _.merge(s.parserInput, data), ast: [] }));
+    this.updateTree();
+  }
+
+  public handleMicrogrammarInputChange = async (data: MicrogrammarInputProps) => {
+    console.log("in handleMicrogrammarInputChange. data: ", data);
+    await this.setState((s) => ({ microgrammarInput: _.merge(s.microgrammarInput, data), ast: [] }));
     this.updateTree();
   }
 

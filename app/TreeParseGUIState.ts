@@ -1,5 +1,5 @@
 import { MatchExplanationTreeNode } from "@atomist/microgrammar";
-import { MicrogrammarInputProps } from "./components/MicrogrammarInput";
+import { MicrogrammarInputData } from "./components/MicrogrammarInput";
 
 export interface MicrogrammarParserSpec {
     microgrammarString: string;
@@ -39,7 +39,7 @@ export interface TreeNodeCompatible {
 export type AST = TreeNodeCompatible[];
 
 export interface ParserInputProps {
-    microgrammarInput: MicrogrammarInputProps;
+    microgrammarInput: MicrogrammarInputData;
     code: string;
 }
 
@@ -54,7 +54,7 @@ export interface TreeParseGUIState {
     failureExplanation?: FailureExplanationTree;
     error?: ErrorResponse;
     parserInput: ParserInputProps;
-    microgrammarInput: MicrogrammarInputProps;
+    microgrammarInput: MicrogrammarInputData;
     chosenTree: TreeChoices;
     matchScope: MatchScope;
 }

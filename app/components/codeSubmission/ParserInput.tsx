@@ -1,7 +1,7 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
 import React from "react";
 import { ErrorResponse, MatchScope, ParserInputProps } from "../../TreeParseGUIState";
-import { MicrogrammarInput, MicrogrammarInputProps } from "../MicrogrammarInput";
+import { MicrogrammarInput, MicrogrammarInputData } from "../MicrogrammarInput";
 import { CodeDisplay } from "./codeDisplay";
 import { HighlightFunction } from "./highlightCode";
 import { RadioChoiceSpec, ChoiceGroup } from "../ChoiceGroup";
@@ -24,7 +24,7 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
     this.props.updateFn({ code });
   }
 
-  public handleMicrogrammarChange = (microgrammarInput: MicrogrammarInputProps) => {
+  public handleMicrogrammarChange = (microgrammarInput: MicrogrammarInputData) => {
     return this.props.updateFn({
       microgrammarInput,
     });

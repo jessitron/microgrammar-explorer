@@ -3,9 +3,9 @@ import { ErrorResponse, KnownErrorLocation, MicrogrammarParserSpec } from "../Tr
 import { CodeDisplay } from "./codeSubmission/codeDisplay";
 
 export class MicrogrammarInput extends React.Component<{
-    microgrammarInputProps: MicrogrammarInputProps,
+    microgrammarInputProps: MicrogrammarInputData,
     errorResponse?: ErrorResponse,
-    handleChange: (mip: Partial<MicrogrammarInputProps>) => Promise<void>,
+    handleChange: (mip: Partial<MicrogrammarInputData>) => Promise<void>,
 }, {}> {
 
     constructor(props) {
@@ -59,12 +59,12 @@ export class MicrogrammarInput extends React.Component<{
     }
 }
 
-export interface MicrogrammarInputProps {
+export interface MicrogrammarInputData {
     microgrammarString: string;
     terms: string;
 }
 
-export const init: MicrogrammarInputProps = {
+export const init: MicrogrammarInputData = {
     microgrammarString: "<${first}><${second}>",
     terms: `function (mg) {
     return {

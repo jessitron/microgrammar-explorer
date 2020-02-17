@@ -54,6 +54,7 @@ export interface TreeParseGUIState {
     failureExplanation?: FailureExplanationTree;
     error?: ErrorResponse;
     parserInput: ParserInputProps;
+    microgrammarInput: MicrogrammarInputProps;
     chosenTree: TreeChoices;
     matchScope: MatchScope;
 }

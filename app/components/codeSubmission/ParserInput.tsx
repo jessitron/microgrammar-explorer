@@ -26,12 +26,6 @@ export class ParserInput extends React.Component<AllParserInputProps, {}> {
     this.props.updateFn({ code });
   }
 
-  public handleMicrogrammarChange = (microgrammarInput: MicrogrammarInputData) => {
-    return this.props.mgUpdateFn(
-      microgrammarInput,
-    );
-  }
-
   public handleSubmit = (event) => {
     console.log("You pushed submit.");
     event.preventDefault();

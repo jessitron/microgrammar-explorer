@@ -9,6 +9,7 @@ import { RadioChoiceSpec, ChoiceGroup } from "../ChoiceGroup";
 export interface AllParserInputProps {
   parserInput: ParserInputProps;
   microgrammarInput: MicrogrammarInputData;
+  mgUpdateFn: (dtp: Partial<MicrogrammarInputData>) => Promise<void>;
   highlightFn: HighlightFunction;
   errorResponse?: ErrorResponse;
   matchScope: MatchScope;

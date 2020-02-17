@@ -115,6 +115,7 @@ export class TreeParseGUI extends React.Component<{},
               errorResponse={this.state.error}
               changeMatchScope={this.changeMatchScope}
               matchScope={this.state.matchScope}
+              microgrammarInput={this.state.microgrammarInput}
             />
           </div>
           <div className="preview"

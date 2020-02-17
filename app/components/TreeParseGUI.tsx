@@ -23,7 +23,6 @@ export class TreeParseGUI extends React.Component<{},
       displayCode: false,
       parserInput: {
         code: "blah<other><thing> haha",
-        microgrammarInput: initMicrogrammarInput,
       },
       microgrammarInput: initMicrogrammarInput,
       ast: [],
@@ -39,7 +38,7 @@ export class TreeParseGUI extends React.Component<{},
 
   public updateTree = _.debounce(async () => {
     const dataToParse: DataToParse = {
-      parser: this.state.parserInput.microgrammarInput,
+      parser: this.state.microgrammarInput,
       code: this.state.parserInput.code,
       matchScope: this.state.matchScope,
     };

@@ -39,7 +39,6 @@ export interface TreeNodeCompatible {
 export type AST = TreeNodeCompatible[];
 
 export interface ParserInputProps {
-    microgrammarInput: MicrogrammarInputData;
     code: string;
 }
 
